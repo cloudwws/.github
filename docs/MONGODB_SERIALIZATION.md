@@ -54,7 +54,7 @@ BsonSerializer.RegisterSerializer(
 
 ### 3. Use Concrete DTOs Instead of Dynamic Types
 
-Replace `object` or `dynamic` properties with concrete data transfer objects:
+Replace `object` or `dynamic` properties with concrete Data Transfer Objects (DTOs):
 
 **Before:**
 ```csharp
@@ -201,6 +201,7 @@ Dictionary<CustomObject, string>
 Always test serialization/deserialization in unit tests:
 
 ```csharp
+// Using NUnit testing framework
 [Test]
 public void TestDictionarySerialization()
 {
@@ -217,6 +218,25 @@ public void TestDictionarySerialization()
     var deserializedObject = BsonSerializer.Deserialize<MyClass>(bson);
     
     Assert.AreEqual(testObject.Properties.Count, deserializedObject.Properties.Count);
+}
+
+// Using xUnit testing framework
+[Fact]
+public void TestDictionarySerialization_xUnit()
+{
+    var testObject = new MyClass
+    {
+        Properties = new Dictionary<string, string>
+        {
+            { "key1", "value1" },
+            { "key2", "value2" }
+        }
+    };
+
+    var bson = testObject.ToBson();
+    var deserializedObject = BsonSerializer.Deserialize<MyClass>(bson);
+    
+    Assert.Equal(testObject.Properties.Count, deserializedObject.Properties.Count);
 }
 ```
 
