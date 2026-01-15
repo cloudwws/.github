@@ -52,6 +52,14 @@ Por ello, todas nuestras soluciones cumplen con las normativas más exigentes:
 
 ---
 
+## 📚 Documentación técnica
+
+Para desarrolladores que trabajan con nuestras soluciones:
+
+- **[Guía de serialización MongoDB BSON](docs/MONGODB_SERIALIZATION.md)** – Soluciones para problemas comunes de serialización con MongoDB .NET Driver
+
+---
+
 ## 📞 Contacto
 
 🌍 [cloudworldwideservices.com](https://www.cloudworldwideservices.com/es/)  
